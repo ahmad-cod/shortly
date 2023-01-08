@@ -1,0 +1,33 @@
+body {
+    background-color: violet;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    #nav {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        // flex-basis: 80vw;
+        align-items: center;
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &[data-visible=false] {
+            display: none;
+        }
+
+    }
+    .mobile-nav-toggle {
+        width: 2rem;
+        aspect-ratio: 1;
+        background-image: url('./assets/images/icon-menu.svg');
+        background-repeat: no-repeat;
+        border: 0;
+        background-color: transparent;
+        z-index: 999;
+    }
+} 
