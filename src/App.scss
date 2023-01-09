@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 // ## Colors
 
 // ### Primary
@@ -85,6 +86,7 @@ header {
 .link-shortener {
     @include flex;
     flex-direction: column;
+    position: relative;
     @include bgImage('assets/images/bg-shorten-mobile.svg');
     background-color: $Dark-Violet;
     background-position: right;

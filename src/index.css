@@ -14,11 +14,13 @@
 * {
   margin: 0;
   padding: 0;
+  transition: all .3s ease-in-out;
+  font-family: inherit;
 }
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  /* font-family: 'Epilogue', sans-serif; */
+  font-family: 'Poppins', sans-serif;
 }
 
 img {
