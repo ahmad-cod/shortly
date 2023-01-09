@@ -1,18 +1,22 @@
+import facebookIcon from "../assets/images/icon-facebook.svg" 
+import twitterIcon from "../assets/images/icon-twitter.svg"
+import pinterestIcon from "../assets/images/icon-pinterest.svg"
+import instagramIcon from "../assets/images/icon-instagram.svg"
 
 function SocialLinks() {
     return (
         <div className="social">
             <a href="#">
-                <img src="../src/assets/images/icon-facebook.svg" alt="Facebook" />
+                <img src={facebookIcon} alt="Facebook" />
             </a>
             <a href="#">
-                <img src="../src/assets/images/icon-twitter.svg" alt="Twitter" />
+                <img src={twitterIcon} alt="Twitter" />
             </a>
             <a href="#">
-                <img src="../src/assets/images/icon-pinterest.svg" alt="Pinterest" />
+                <img src={pinterestIcon} alt="Pinterest" />
             </a>
             <a href="#">
-                <img src="../src/assets/images/icon-instagram.svg" alt="Instagram" />
+                <img src={instagramIcon} alt="Instagram" />
             </a>
         </div>
     )

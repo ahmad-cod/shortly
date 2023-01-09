@@ -1,9 +1,10 @@
+import illustrationMockup from "../assets/images/illustration-working.svg"
 
 export default function Hero() {
     return (
         <main className="hero-container">
             <div className="hero-image container">
-                <img src="../src/assets/images/illustration-working.svg" alt="Logo" />
+                <img src={illustrationMockup} alt="Illustration mockup"/>
             </div>
             <div className="hero-texts container">
                 <h1>

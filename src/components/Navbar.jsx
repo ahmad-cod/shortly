@@ -1,9 +1,10 @@
+import logo from "../assets/images/logo.svg"
 
 export default function Navbar() {
     return (
         <header className="">
             <div className="logo">
-                <img src="../src/assets/images/logo.svg" alt="Logo" />
+                <img src={logo} alt="Logo" />
             </div>
             <button className="mobile-nav-toggle" aria-label="Menu" aria-controls="nav" aria-expanded='false'>
             </button>

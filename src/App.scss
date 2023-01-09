@@ -35,9 +35,12 @@ $Very-Dark-Violet: hsl(260, 8%, 14%);
 body {
     text-align: center;
     overflow-x: hidden;
+    position: relative;
 }
 header {
     @include flex;
+    padding-top: 1rem;
+    padding-inline: 1rem;
     #nav {
         flex-direction: column;
         // flex-basis: 80vw;
