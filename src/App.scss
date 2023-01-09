@@ -1,20 +1,49 @@
-body {
-    background-color: violet;
+// ## Colors
+
+// ### Primary
+
+$Cyan: hsl(180, 66%, 49%); //cta background color
+$Dark-Violet: hsl(257, 27%, 26%);
+
+// ### Secondary
+
+$Red: hsl(0, 87%, 67%);
+
+// ### Neutral
+
+$Gray: hsl(0, 0%, 75%);
+$Grayish-Violet: hsl(257, 7%, 63%);
+$Very-Dark-Blue: hsl(255, 11%, 22%);
+$Very-Dark-Violet: hsl(260, 8%, 14%);
+
+@mixin cta {
+    background-color: $Cyan;
+    color: #fff;
+    padding: .5rem 2rem;
+    border-radius: 1.2rem;
 }
-header {
+@mixin flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+@mixin bgImage($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+}
+
+body {
+    text-align: center;
+    overflow-x: hidden;
+}
+header {
+    @include flex;
     #nav {
-        display: flex;
-        justify-content: space-between;
         flex-direction: column;
         // flex-basis: 80vw;
-        align-items: center;
+        @include flex;
         ul {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include flex;
         }
         &[data-visible=false] {
             display: none;
@@ -22,12 +51,133 @@ header {
 
     }
     .mobile-nav-toggle {
+        @include bgImage('./assets/images/icon-menu.svg');
         width: 2rem;
         aspect-ratio: 1;
-        background-image: url('./assets/images/icon-menu.svg');
-        background-repeat: no-repeat;
         border: 0;
         background-color: transparent;
         z-index: 999;
     }
 } 
+
+// Hero Section
+.hero-texts {
+    padding: 1.5rem;
+    padding-bottom: 1.5rem;
+    & > * {
+        padding-top: 1rem;
+    }
+    div.cta {
+        margin: 0 auto;
+        margin-top: 1.2rem;
+        width: min(13rem, 50vw);
+    }
+}
+.cta {
+    @include cta;
+}
+
+// Link Shortener
+
+.link-shortener {
+    @include flex;
+    flex-direction: column;
+    @include bgImage('assets/images/bg-shorten-mobile.svg');
+    background-color: $Dark-Violet;
+    background-position: right;
+    padding: 2rem .5rem;
+    margin-inline: 1rem;
+    border-radius: .5rem;
+    button {
+        @include cta;
+        margin-top: .5rem;
+        border-radius: .5rem;
+    }
+    input::placeholder {
+        text-align: center;
+    }
+    & > * {
+        width: 80%;
+        padding-block: .6rem;
+        border-radius: .5rem;
+    }
+}
+
+// Features Container
+
+.features-container {
+    padding: 1.5rem;
+    background-color: $Gray;
+}
+.card {
+    position: relative;
+    background-color: #fff;
+    margin-top: 3rem;
+    border-radius: .5rem;
+    padding: 1.5rem;
+    
+    .card-img {
+        position: relative;
+        display: flex;
+        place-content: center;
+        background-color: $Very-Dark-Blue;
+        padding: 1rem;
+        border-radius: 50%;
+        width: 80px;
+        top: -50px;
+        left: 35%;
+    }
+    &::after{
+        content: ' ';
+        background-color: $Very-Dark-Blue;
+        width: 10px;
+    }
+}
+
+// Boost
+
+.call-to-action {
+    @include bgImage('assets/images/bg-boost-mobile.svg');
+    padding: 2rem;
+    color: #fff;
+    background-position: left 50%;
+    background-color: $Dark-Violet;
+
+    h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+}
+
+// Footer Section
+
+.footer {
+    background-color: $Very-Dark-Violet;
+    color: $Gray;
+    padding: 2rem;
+    margin-inline: 0;
+    
+    .footer-logo {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2.1rem;
+    }
+    h4 {
+        margin-bottom: .6rem;
+        color: #fff;
+    }
+    & > * {
+        margin-bottom: 2rem;
+    }
+    .social {
+        display: flex;
+        place-content: center;
+        margin-bottom: 0;
+        a {
+            margin-right: 1.2rem;
+        }
+        a:last-child {
+            margin-right: 0;
+        }
+    }
+}

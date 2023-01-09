@@ -1,9 +1,28 @@
+
+function SocialLinks() {
+    return (
+        <div className="social">
+            <a href="#">
+                <img src="../src/assets/images/icon-facebook.svg" alt="Facebook" />
+            </a>
+            <a href="#">
+                <img src="../src/assets/images/icon-twitter.svg" alt="Twitter" />
+            </a>
+            <a href="#">
+                <img src="../src/assets/images/icon-pinterest.svg" alt="Pinterest" />
+            </a>
+            <a href="#">
+                <img src="../src/assets/images/icon-instagram.svg" alt="Instagram" />
+            </a>
+        </div>
+    )
+}
 export default function Footer() {
     return (
         <footer className="footer">
-                <img src="../src/assets/images/logo.svg" alt="Logo" />
+            <div className="footer-logo">Shortly</div>
             <div className="features">
-                <h5>Features</h5>
+                <h4>Features</h4>
                 <ul>
                     <li>Link Shortening</li>
                     <li>Branded Links</li>
@@ -11,7 +30,7 @@ export default function Footer() {
                 </ul>
             </div>
             <div className="resources">
-                <h5>Resources</h5>
+                <h4>Resources</h4>
                 <ul>
                     <li>Blog</li>
                     <li>Developers</li>
@@ -19,7 +38,7 @@ export default function Footer() {
                 </ul>
             </div>
             <div className="company">
-                <h5>Company</h5>
+                <h4>Company</h4>
                 <ul>
                     <li>About</li>
                     <li>Our Team</li>
@@ -27,6 +46,7 @@ export default function Footer() {
                     <li>Contact</li>
                 </ul>
             </div>
+            <SocialLinks />
         </footer>
     )
 }

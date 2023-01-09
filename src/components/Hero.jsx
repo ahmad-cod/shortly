@@ -13,7 +13,9 @@ export default function Hero() {
                     Build your brand's recognition and get detailed insights 
                     on how your links are performing.
                 </p>
-                <a href="#">Get Started</a>
+                <div className="cta">
+                    <a href="#">Get Started</a>
+                </div>
             </div>
         </main>
     )

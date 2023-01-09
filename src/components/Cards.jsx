@@ -23,8 +23,10 @@ const features = [
 function Card(props) {
     const {imgUrl, title, content} = props
     return (
-            <div className="">
-                <img src={imgUrl} alt="Card Icon" />
+            <div className="card">
+                <div className="card-img">
+                    <img src={imgUrl} alt="Card Icon" />
+                </div>
                 <h3>{title}</h3>
                 <p>
                     {content}

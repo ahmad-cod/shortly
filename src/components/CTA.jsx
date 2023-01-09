@@ -1,10 +1,10 @@
 export default function CTA() {
     return (
         <div className="call-to-action">
-            <h4>
+            <h3>
                 Boost your links today
-            </h4>
-            <a href="#">Get Started</a>
+            </h3>
+            <a href="#" className="cta">Get Started</a>
         </div>
     )
 }
