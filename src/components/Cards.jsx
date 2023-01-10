@@ -39,7 +39,7 @@ function Card(props) {
 }
 export default function Cards() {
     return (
-            <div className="">
+            <div className="cards">
                 {features.map(feature => <Card {...feature} key={feature.id} />)}
             </div>
     )

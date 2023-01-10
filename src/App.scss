@@ -37,21 +37,55 @@ body {
     text-align: center;
     overflow-x: hidden;
     position: relative;
+    font-family: 'Poppins' sans-serif;
 }
+
+p {
+    color: $Grayish-Violet;
+}
+h1, h2, h3 {
+    color: $Very-Dark-Violet;
+}
+
 header {
-    @include flex;
-    padding-top: 1rem;
-    padding-inline: 1rem;
-    #nav {
-        flex-direction: column;
-        // flex-basis: 80vw;
+    .banner {
         @include flex;
+        padding-top: 2rem;
+        padding-inline: 1rem;
+    }
+    #nav {
+        @include flex;
+        flex-direction: column;
+        gap: 2rem;
+        // flex-basis: 80vw;
+        position: relative;
+        color: #fff;
+        top: 20px;
+        padding: 2rem;
+        background-color: $Dark-Violet;
+        border-radius: 1rem;
+        width: 90%;
+        margin: 0 auto;
+        z-index: 100;
+
+        .left-links {
+            border-bottom: 1px solid $Grayish-Violet;
+            padding-inline: 5rem;
+            padding-bottom: 2rem;
+        }
         ul {
             @include flex;
+            gap: 1.5rem;
+            flex-direction: column;
+
+            .cta {
+                padding-inline: 5rem;
+            }
         }
-        &[data-visible=false] {
-            display: none;
-        }
+        
+        // &[data-visible=false] {
+        //     display: none;
+        // }
 
     }
     .mobile-nav-toggle {
@@ -68,6 +102,9 @@ header {
 .hero-texts {
     padding: 1.5rem;
     padding-bottom: 1.5rem;
+    h1 {
+        line-height: 2.5rem;
+    }
     & > * {
         padding-top: 1rem;
     }
@@ -81,15 +118,17 @@ header {
     @include cta;
 }
 
+// Statistics
 // Link Shortener
 
 .link-shortener {
     @include flex;
     flex-direction: column;
     position: relative;
+    top: -100px;
     @include bgImage('assets/images/bg-shorten-mobile.svg');
     background-color: $Dark-Violet;
-    background-position: right;
+    background-position: right top;
     padding: 2rem .5rem;
     margin-inline: 1rem;
     border-radius: .5rem;
@@ -100,6 +139,7 @@ header {
     }
     input::placeholder {
         text-align: center;
+        color: $Grayish-Violet;
     }
     & > * {
         width: 80%;
@@ -113,14 +153,25 @@ header {
 .features-container {
     padding: 1.5rem;
     background-color: $Gray;
+    margin-top: 100px;
+
+    h2 {
+        margin-bottom: 1.5rem;
+    }
 }
 .card {
     position: relative;
     background-color: #fff;
-    margin-top: 3rem;
+    margin-top: 4rem;
     border-radius: .5rem;
     padding: 1.5rem;
     
+    &:first-child {
+        margin-top: 3rem;
+    }
+    h3 {
+        margin-bottom: 1rem;
+    }
     .card-img {
         position: relative;
         display: flex;
@@ -132,10 +183,19 @@ header {
         top: -50px;
         left: 35%;
     }
-    &::after{
-        content: ' ';
-        background-color: $Very-Dark-Blue;
-        width: 10px;
+    p {
+        font-size: .9rem;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        background-color: $Cyan;
+        width: 8px;
+        height: 50px;
+        top: 100%;
+    }
+    &:last-child::after {
+        height: 0;
     }
 }
 
@@ -143,14 +203,17 @@ header {
 
 .call-to-action {
     @include bgImage('assets/images/bg-boost-mobile.svg');
-    padding: 2rem;
-    color: #fff;
+    padding: 6rem 1.5rem;
     background-position: left 50%;
     background-color: $Dark-Violet;
 
     h3 {
-        font-size: 1.6rem;
-        margin-bottom: 1rem;
+        font-size: 1.7rem;
+        margin-bottom: 1.5rem;
+        color: #fff;
+    }
+    .cta {
+        padding: .7rem 2.5rem;
     }
 }
 
@@ -185,4 +248,128 @@ header {
             margin-right: 0;
         }
     }
+}
+
+// Responsiveness
+
+@media (min-width: 700px) {
+    header {
+        @include flex;
+        padding-inline: 4rem;
+        #nav {
+            flex-direction: row;
+            background-color: transparent;
+            color: $Grayish-Violet;
+            padding-top: 1rem;
+
+            ul {
+                flex-direction: row;
+
+                .cta {
+                    padding-inline: 1.5rem;
+                }
+            }
+            .left-links {
+                border-bottom: none;
+                padding: 0;
+            }
+        }
+        .mobile-nav-toggle {
+            display: none;
+        }
+    }
+    .hero-container {
+        @include flex();
+        flex-direction: row-reverse;
+        text-align: start;
+        margin-block: 3rem;
+        padding-top: 1rem;
+        gap: 2rem;
+        padding-left: 4rem;
+
+        .hero-texts {
+            flex-basis: 50%;
+            
+                h1 {
+                    font-size: 3.7rem;
+                    line-height: 4rem;
+                    letter-spacing: .1rem;
+                    // .cta {
+                    //     margin: 0;
+                    //     text-align: center;
+                    // }
+                }
+        
+                div.cta {
+                    margin: 0;
+                    margin-top: 1rem;
+                    text-align: center;
+                }
+            }
+        }
+
+        .link-shortener {
+            flex-direction: row;
+            justify-content: center;
+            gap: 1rem;
+            margin-inline: 4rem;
+            margin-right: 5rem;
+            background-image: url('assets/images/bg-shorten-desktop.svg');
+            top: -80px;
+            input {
+                max-width: 60%;
+            }
+            button {
+                max-width: 20%;
+                margin-top: 0;
+            }
+        }
+        .features-container {
+            padding: 4rem;
+            & > p {
+                max-width: 45ch;
+                margin: 0 auto;
+                margin-bottom: 2rem;
+            }
+
+            .cards {
+                display: flex;
+                justify-content: center;
+                .card {
+                    max-width: 360px;
+                    margin-right: 1rem;
+                }
+                .card:nth-child(2) {
+                    margin-top: 6rem;
+                }
+                .card:last-child {
+                    margin-top: 10rem;
+                }
+            }
+        }
+        // Boost
+        .call-to-action {
+            background-image: url('assets/images/bg-boost-desktop.svg');
+        }
+
+        // Footer Section
+
+        .footer {
+            @include flex();
+            align-items: flex-start;
+            justify-content: space-around;
+            padding: 5rem;
+            padding-bottom: 1rem;
+
+            .footer-logo {
+                color: #fff;
+            }
+            h4 {
+                margin-bottom: 1.8rem;
+            }
+            div ul li {
+                font-size: 14px;
+                padding-block: .3rem;
+            }
+        }
 }
