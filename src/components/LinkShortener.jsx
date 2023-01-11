@@ -7,7 +7,7 @@ export default function LinkShortener() {
     return (
         <form className="link-shortener" onSubmit={handleSubmit}>
             <input type="text" placeholder="Shorten a link here..." />
-            <button type="submit">Shorten it!</button>
+            <button type="submit" className="cta">Shorten it!</button>
         </form>
     )
 }

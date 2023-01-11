@@ -22,6 +22,8 @@ $Very-Dark-Violet: hsl(260, 8%, 14%);
     color: #fff;
     padding: .5rem 2rem;
     border-radius: 1.2rem;
+    opacity: 0;
+    animation: moveLeftandFade 1.5s ease .7s forwards;
 }
 @mixin flex {
     display: flex;
@@ -31,6 +33,10 @@ $Very-Dark-Violet: hsl(260, 8%, 14%);
 @mixin bgImage($url) {
     background-image: url($url);
     background-repeat: no-repeat;
+}
+@mixin hoverEffect {
+    color: $Cyan;
+    cursor: pointer;
 }
 
 body {
@@ -78,13 +84,20 @@ header {
             gap: 1.5rem;
             flex-direction: column;
 
+            li:hover {
+                color: $Very-Dark-Violet;
+                cursor: pointer;
+            }
+
             .cta {
                 padding-inline: 5rem;
             }
         }
         
-        &[data-visible=false] {
-            display: none;
+        @media (max-width: 700px) {
+            &[data-visible=false] {
+                display: none;
+            }
         }
 
     }
@@ -121,6 +134,10 @@ header {
 }
 .cta {
     @include cta;
+}
+.cta:hover {
+    opacity: .6;
+    cursor: pointer;
 }
 
 // Statistics
@@ -246,6 +263,9 @@ header {
     & > * {
         margin-bottom: 2rem;
     }
+    ul li:hover {
+        @include hoverEffect();
+    }
     .social {
         display: flex;
         place-content: center;
@@ -256,6 +276,21 @@ header {
         a:last-child {
             margin-right: 0;
         }
+        a img:hover {
+            fill: $Cyan;
+            background-color: $Cyan;
+        }
+    }
+}
+
+
+@keyframes moveLeftandFade {
+    from {
+        transform: translateX(10rem);
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
@@ -346,7 +381,7 @@ header {
                 grid-template-columns: repeat(3, 1fr);
                 column-gap: 2rem;
                 row-gap: 5rem;
-                margin: 3rem 0 9rem;
+                margin: 3rem 5rem 9rem 4rem;
                 .card {
                     height: max-content;
                     text-align: start;
