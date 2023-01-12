@@ -52,7 +52,15 @@ p {
 h1, h2, h3 {
     color: $Very-Dark-Violet;
 }
-
+.border-red {
+    border: 2px solid $Red;
+}
+.border-transparent {
+    border-color: white;
+}
+// .relative {
+//     position: relative;
+// }
 header {
     .banner {
         @include flex;
@@ -142,17 +150,21 @@ header {
 
 // Statistics
 // Link Shortener
+.shorten-url-container {
+    position: relative;
+    top: -100px;
+    margin-inline: 1rem;
 
+}
 .link-shortener {
     @include flex;
     flex-direction: column;
-    position: relative;
-    top: -100px;
+    gap: .3rem;
+
     @include bgImage('assets/images/bg-shorten-mobile.svg');
     background-color: $Dark-Violet;
     background-position: right top;
     padding: 2rem .5rem;
-    margin-inline: 1rem;
     border-radius: .5rem;
     button {
         @include cta;
@@ -163,10 +175,76 @@ header {
         text-align: center;
         color: $Grayish-Violet;
     }
-    & > * {
+    .relative {
+        width: 80%;
+        text-align: start;
+        transition: all 1s ease-in;
+    }
+
+    // Error Message
+    .show {
+        color: $Red;
+        font-size: .8rem;
+    }
+    .hide {
+        display: none;
+    }
+    input {
+        padding-block: .6rem;
+        border-radius: .5rem;
+        width: 100%;
+    }
+    & button {
         width: 80%;
         padding-block: .6rem;
         border-radius: .5rem;
+    }
+}
+
+// Shortened Link Section
+
+.short-link-container {
+    background-color: #fff;
+    border-radius: .3rem;
+    @include flex();
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1rem;
+    gap: 1rem;
+    text-align: start;
+    padding: 1.2rem .1rem;
+
+    & > * {
+        width: 100%;
+    }
+    .full_short_link {
+        padding-inline: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            align-self: flex-start;
+            padding-inline: 1rem;
+            color: $Cyan;
+            margin-bottom: .4rem;
+        }
+    }
+    .cta {
+        padding-inline: 6.8rem;
+        text-align: center;
+        border-radius: .3rem;
+        margin: 0 auto;
+    }
+    .copied {
+        background-color: $Very-Dark-Blue;
+    }
+    .original-link {
+        padding-inline: 1rem;
+        padding-bottom: .4rem;
+        text-align: start;
+        width: 100%;
+        border-bottom: .1rem solid $Gray;        
     }
 }
 
@@ -299,7 +377,8 @@ header {
 @media (min-width: 700px) {
     header {
         @include flex;
-        padding-inline: 4rem;
+        padding-inline: 1.5rem;
+        margin-inline: 4.5rem;
         #nav {
             flex-direction: row;
             background-color: transparent;
@@ -329,11 +408,12 @@ header {
         margin-block: 3rem;
         padding-top: 1rem;
         gap: 2rem;
-        padding-left: 4rem;
+        padding-left: 1.5rem;
+        margin-left: 4.5rem;
 
         .hero-texts {
             flex-basis: 50%;
-            
+
                 h1 {
                     font-size: 3.7rem;
                     line-height: 4rem;
@@ -342,6 +422,9 @@ header {
                     //     margin: 0;
                     //     text-align: center;
                     // }
+                }
+                p {
+                    max-width: 40ch;
                 }
         
                 div.cta {
@@ -352,14 +435,17 @@ header {
             }
         }
 
+        .shorten-url-container {
+            margin-inline: 4rem;
+            top: -110px;
+
+        }
         .link-shortener {
             flex-direction: row;
             justify-content: center;
             gap: 1rem;
-            margin-inline: 4rem;
-            margin-right: 5rem;
+            margin-right: .5rem;
             background-image: url('assets/images/bg-shorten-desktop.svg');
-            top: -80px;
             input {
                 max-width: 60%;
             }
@@ -381,7 +467,7 @@ header {
                 grid-template-columns: repeat(3, 1fr);
                 column-gap: 2rem;
                 row-gap: 5rem;
-                margin: 3rem 5rem 9rem 4rem;
+                margin: 3rem 5rem 9rem 4.5rem;
                 .card {
                     height: max-content;
                     text-align: start;

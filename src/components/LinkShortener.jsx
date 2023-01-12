@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import ShortenedLink from "./ShortenedLink"
 
 export default function LinkShortener() {
     const getLStoredinks = JSON.parse(localStorage.getItem('links')) || []
@@ -26,16 +27,31 @@ export default function LinkShortener() {
         setUrl('')
     }
     return (
-        <form className="link-shortener" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Shorten a link here..."
-            
-              value={url}
-              onFocus={() => setError(false)}
-              onChange={e => setUrl(e.target.value)}
-            />
-            <button type="submit" className="cta">Shorten it!</button>
-        </form>
+        <div className="shorten-url-container">
+            <form className="link-shortener" onSubmit={handleSubmit}>
+                <div className="relative">
+                    <input
+                    type="text"
+                    placeholder="Shorten a link here..."
+                    className={error ? 'border-red' : 'border-transparent'}
+                    value={url}
+                    onFocus={() => setError(false)}
+                    onChange={e => setUrl(e.target.value)}
+                    />
+                    <span
+                        className={`error-message ${error ? 'show' : 'hide'}`}
+                    >
+                        Please Input a valid Url.
+                    </span>
+                </div>
+                <button type="submit" className="cta">Shorten it!</button>
+            </form>
+            <div className="short-links" aria-live={(links.length !== 0) ? "polite" : 'off'}>
+                {
+                    (links.length !== 0) && links.map(link => <ShortenedLink key={links.indexOf(link)} data={link} />)
+                }
+            </div>
+        </div>
+
     )
 }
