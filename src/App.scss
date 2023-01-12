@@ -43,7 +43,7 @@ body {
     text-align: center;
     overflow-x: hidden;
     position: relative;
-    font-family: 'Poppins' sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 p {
@@ -212,7 +212,7 @@ header {
     margin-top: 1rem;
     gap: 1rem;
     text-align: start;
-    padding: 1.2rem .1rem;
+    padding: 1rem .1rem .8rem;
 
     & > * {
         width: 100%;
@@ -452,6 +452,34 @@ header {
             button {
                 max-width: 20%;
                 margin-top: 0;
+            }
+        }
+        .short-link-container {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            padding-left: 1rem;
+            
+
+            .original-link {
+                border-bottom: none;
+                padding: 0;
+            }
+            .full_short_link {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                gap: 2rem;
+
+                a {
+                    padding: 0;
+                    margin-bottom: 0;
+                    align-self: center;
+                }
+                .cta {
+                    padding: .6rem 3rem;
+                    margin: 0;
+                }
             }
         }
         .features-container {
