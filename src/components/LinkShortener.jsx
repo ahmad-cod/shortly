@@ -33,7 +33,7 @@ export default function LinkShortener() {
                     <input
                     type="text"
                     placeholder="Shorten a link here..."
-                    className={error ? 'border-red' : 'border-transparent'}
+                    className={error ? 'red' : 'border-transparent'}
                     value={url}
                     onFocus={() => setError(false)}
                     onChange={e => setUrl(e.target.value)}
@@ -41,7 +41,7 @@ export default function LinkShortener() {
                     <span
                         className={`error-message ${error ? 'show' : 'hide'}`}
                     >
-                        Please Input a valid Url.
+                        Please Input a valid Url...
                     </span>
                 </div>
                 <button type="submit" className="cta">Shorten it!</button>

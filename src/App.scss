@@ -52,15 +52,10 @@ p {
 h1, h2, h3 {
     color: $Very-Dark-Violet;
 }
-.border-red {
-    border: 2px solid $Red;
-}
 .border-transparent {
     border-color: white;
 }
-// .relative {
-//     position: relative;
-// }
+
 header {
     .banner {
         @include flex;
@@ -189,6 +184,13 @@ header {
     .hide {
         display: none;
     }
+    .red {
+        border-color: $Red;
+        
+        &::placeholder {
+            color: red;
+        }
+    }
     input {
         padding-block: .6rem;
         border-radius: .5rem;
@@ -243,6 +245,8 @@ header {
         padding-inline: 1rem;
         padding-bottom: .4rem;
         text-align: start;
+        overflow-wrap: break-word;
+
         width: 100%;
         border-bottom: .1rem solid $Gray;        
     }
@@ -350,13 +354,16 @@ header {
         margin-bottom: 0;
         a {
             margin-right: 1.2rem;
+            transition: transform .8s;
         }
         a:last-child {
             margin-right: 0;
         }
-        a img:hover {
-            fill: $Cyan;
+        a:hover {
+            // fill: $Cyan;
             background-color: $Cyan;
+            padding: 3px;
+            transform: scale(1.1);
         }
     }
 }
@@ -443,11 +450,18 @@ header {
         .link-shortener {
             flex-direction: row;
             justify-content: center;
+            align-items: center;
             gap: 1rem;
             margin-right: .5rem;
             background-image: url('assets/images/bg-shorten-desktop.svg');
-            input {
+            .relative {
                 max-width: 60%;
+                position: relative;
+                .error-message {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                }
             }
             button {
                 max-width: 20%;
@@ -459,6 +473,7 @@ header {
             align-items: center;
             justify-content: space-around;
             padding-left: 1rem;
+            // flex-wrap: wrap;
             
 
             .original-link {
