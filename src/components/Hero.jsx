@@ -7,7 +7,7 @@ export default function Hero() {
                 <img src={illustrationMockup} alt="Illustration mockup"/>
             </div>
             <div className="hero-texts container">
-                <h1>
+                <h1 className="font-bold">
                     More than just shorter links
                 </h1>
                 <p>

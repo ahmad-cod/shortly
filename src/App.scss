@@ -61,6 +61,7 @@ header {
         @include flex;
         padding-top: 2rem;
         padding-inline: 1rem;
+        animation: logo-spin 1s ease .2s;
     }
     #nav {
         @include flex;
@@ -279,6 +280,9 @@ header {
     }
     h3 {
         margin-bottom: 1rem;
+    }
+    &:hover {
+        transform: scale(1.1);
     }
     .card-img {
         position: relative;

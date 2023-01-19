@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import { Link } from "react-router-dom"
 import logo from "../assets/images/logo.svg"
 
 export default function Navbar() {
@@ -21,9 +22,9 @@ export default function Navbar() {
     return (
         <header className="">
             <div className="banner">
-                <div className="logo">
+                <Link to='/' className="logo">
                     <img src={logo} alt="Logo" />
-                </div>
+                </Link>
                 <button
                     className="mobile-nav-toggle"
                     aria-label="Menu" aria-controls="nav" aria-expanded='false' 
@@ -40,7 +41,11 @@ export default function Navbar() {
                     </ul>
 
                     <ul className="right-links">
-                        <li>Login</li>
+                        <li>
+                            <Link to='/login'>
+                                Login
+                            </Link>
+                        </li>
                         <li className="cta">Sign Up</li>
                     </ul>
             </nav>
