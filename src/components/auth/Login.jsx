@@ -7,10 +7,10 @@ export default function Login() {
     const [password, setPassword] = useState(null)
 
     const handleSubmit = () => {
-        console.log('Login')
+        console.log(email, password)
     }
     return (
-        <section className="h-screen -mt-20">
+        <section className="h-screen lg:-mt-20">
             <div className="px-6 h-full text-gray-800">
                 <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
                     <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
@@ -79,9 +79,10 @@ export default function Login() {
                             <div className="mb-6">
                                 <input
                                     type="text"
-                                    className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 hover:border-b-4 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-darkviolet focus:outline-none"
                                     id="email"
                                     placeholder="Email address"
+                                    value={email}
                                     onChange={({ target }) => setEmail(target.value)}
 
                                 />
@@ -91,7 +92,7 @@ export default function Login() {
                             <div className="mb-6">
                                 <input
                                     type="password"
-                                    className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid hover:border-b-4 border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-darkviolet focus:outline-none"
                                     id="password"
                                     placeholder="Password"
                                     value={password}
@@ -104,7 +105,7 @@ export default function Login() {
                                 <div className="form-group form-check">
                                     <input
                                         type="checkbox"
-                                        className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                                        className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-darkviolet checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                                         id="exampleCheck2"
                                     />
                                     <label className="form-check-label inline-block text-gray-800" for="exampleCheck2"
